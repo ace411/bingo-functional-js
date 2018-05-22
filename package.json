@@ -4,7 +4,7 @@
   "description": "A simple functional programming library",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/ace411/bingo-functional-js/issues"
   },
-  "homepage": "https://github.com/ace411/bingo-functional-js#readme"
+  "homepage": "https://github.com/ace411/bingo-functional-js#readme",
+  "devDependencies": {
+    "jest": "^22.4.4"
+  }
 }
