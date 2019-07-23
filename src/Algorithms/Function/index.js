@@ -10,6 +10,15 @@ const memoize = require('./memoize')
 const partial = require('./partial')
 const partialRight = require('./partialRight')
 const toException = require('./toException')
+const isEmpty = require('./isEmpty')
+const isBoolean = require('./isBoolean')
+const isError = require('./isError')
+const isJsonObject = require('./isJsonObject')
+const isNull = require('./isNull')
+const isNumber = require('./isNumber')
+const isRegExp = require('./isRegExp')
+const isString = require('./isString')
+const isSymbol = require('./isSymbol')
 
 module.exports = {
     compose,
@@ -22,6 +31,15 @@ module.exports = {
     isUndefined,
     memoize,
     partial,
+    isEmpty,
     partialRight,
-    toException
+    toException,
+    isBoolean,
+    isError,
+    isJsonObject,
+    isNull,
+    isNumber,
+    isRegExp,
+    isString,
+    isSymbol
 }
