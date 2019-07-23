@@ -11,7 +11,7 @@
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" target="_blank" />
   </a>
   <a href="https://github.com/ace411/bingo-functional-js/blob/master/LICENSE">
-    <img alt="License: Apache-2.0" src="https://img.shields.io/badge/License-Apache-2.0-yellow.svg" target="_blank" />
+    <img alt="License: Apache-2.0" src="https://img.shields.io/badge/License-Apache2.0-yellow.svg" target="_blank" />
   </a>
 </p>
 
