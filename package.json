@@ -1,6 +1,6 @@
 {
   "name": "bingo-functional-js",
-  "version": "1.0.0",
+  "version": "0.1.0-beta",
   "description": "A port of the PHP bingo-functional library",
   "main": "index.js",
   "scripts": {
