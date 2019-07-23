@@ -4,5 +4,7 @@ module.exports = {
         "/src/",
         "/docs"
     ],
-    "testMatch": ["**/?(*.)+(test).[jt]s"]
+    "testMatch": ["**/?(*.)+(test).[jt]s"],
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
 }
