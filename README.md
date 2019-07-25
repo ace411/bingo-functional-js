@@ -4,6 +4,9 @@
 <h1 align="center">Welcome to bingo-functional-js 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.1.0(beta)-blue.svg?cacheSeconds=2592000" />
+  <a href="https://travis-ci.org/ace411/bingo-functional-js">
+    <img alt="Build Status" src="https://travis-ci.org/ace411/bingo-functional-js.svg?branch=master"/>
+  </a>
   <a href="https://github.com/ace411/bingo-functional-js#readme">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
   </a>
@@ -12,6 +15,9 @@
   </a>
   <a href="https://github.com/ace411/bingo-functional-js/blob/master/LICENSE">
     <img alt="License: Apache-2.0" src="https://img.shields.io/badge/License-Apache2.0-yellow.svg" target="_blank" />
+  </a>
+  <a href="https://codecov.io/gh/ace411/bingo-functional-js">
+    <img src="https://codecov.io/gh/ace411/bingo-functional-js/branch/master/graph/badge.svg" />
   </a>
 </p>
 
