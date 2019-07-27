@@ -15,12 +15,15 @@ const numArr = [1, 2, 3, 4]
 
 const numObj = { a: 12, b: 13, c: 99 }
 
-const factorial = (x) => x < 2 ? 1 : x * factorial(x - 1)
+const factorial = x => x < 2 ? 1 : x * factorial(x - 1)
+
+const fibonacci = x => x < 2 ? x : (fibonacci(x - 1) + fibonacci(x - 2))
 
 module.exports = { 
     argObj, 
     quadEq, 
     factorial, 
+    fibonacci,
     strArr, 
     strObj, 
     numArr, 
