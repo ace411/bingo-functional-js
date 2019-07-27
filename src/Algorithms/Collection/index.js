@@ -14,6 +14,8 @@ const sizeOf = require('./sizeOf')
 const map = require('./map')
 const filter = require('./filter')
 const fold = require('./fold')
+const partition = require('./partition')
+const partitionBy = require('./partitionBy')
 
 module.exports = {
     any,
@@ -31,5 +33,7 @@ module.exports = {
     map,
     sizeOf,
     filter,
-    fold
+    fold,
+    partition,
+    partitionBy
 }
