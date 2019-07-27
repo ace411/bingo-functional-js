@@ -3,10 +3,7 @@ const Monadic = require('../monad')
 function State(comp) {
     Monadic.call(this, comp)
     this.ap = function (state) {
-        return this.bind(func => {
-            console.log(func)
-            return state.map(func)
-        })
+        return this.bind(func => state.map(func))
     }
     this.bind = function (func) {
         return new State(state => {
