@@ -1,7 +1,7 @@
 const Monadic = require('../monad')
 const { isFunction, constantFunction } = require('../../../Algorithms/Function')
 
-function _IO(func) {
+function IO(func) {
     Monadic.call(this, isFunction(func) ? func : constantFunction(func))
     this.ap = function (io) {
         let ret = this.exec()
@@ -13,7 +13,7 @@ function _IO(func) {
     }
     this.map = function (func) {
         let ret = this.exec()
-        return new _IO(func(ret))
+        return new IO(func(ret))
     }
     this.flatMap = function (func) {
         let ret = this.exec()
@@ -24,11 +24,11 @@ function _IO(func) {
     }
 }
 
-_IO.of = function (operation) {
-    return new _IO(operation)
+IO.of = function (operation) {
+    return new IO(operation)
 }
 
-_IO.prototype = Object.create(Monadic.prototype)
-_IO.prototype.constructor = Monadic
+IO.prototype = Object.create(Monadic.prototype)
+IO.prototype.constructor = Monadic
 
-module.exports = _IO
+module.exports = { IO }

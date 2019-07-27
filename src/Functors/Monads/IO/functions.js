@@ -1,4 +1,4 @@
-const _IO = require('./io')
+const { IO: _IO } = require('./io')
 const { toException, compose, isFunction } = require('../../../Algorithms/Function')
 
 const IO = operation => _IO.of(operation)
