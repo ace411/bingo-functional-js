@@ -13,7 +13,7 @@ function Reader(operation) {
         return this.bind(env => new Reader(func(env)))
     }
     this.run = function (env) {
-        return isFunction(this.val) && this.val(env)
+        return this.val(env)
     }
 }
 
