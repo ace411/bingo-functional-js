@@ -2,7 +2,7 @@ const { Maybe, Just, Nothing } = require('./maybe')
 const { head, filter, map } = require('../../Algorithms/Collection')
 const { isEmpty, compose, partial, identity, isNull } = require('../../Algorithms/Function')
 
-const fromValue = (just, nothing = null) => new Maybe().fromValue(just, nothing)
+const fromValue = (just, nothing = null) => Maybe.fromValue(just, nothing)
 
 const isJust = (just) => just instanceof Just 
 

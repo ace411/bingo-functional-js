@@ -24,6 +24,11 @@ function Just(val) {
         return this.val
     }
 }
+
+Just.of = function (val) {
+    return new Just(val)
+}
+
 Just.prototype = Object.create(Monadic.prototype)
 Just.prototype.constructor = Monadic
 
@@ -48,23 +53,31 @@ function Nothing() {
         return this.val
     } 
 }
+
+Nothing.of = function () {
+    return new Nothing()
+}
+
 Nothing.prototype = Object.create(Monadic.prototype)
 Nothing.prototype.constructor = Monadic
 
 function Maybe() {
     this.val = undefined
-    this.fromValue = function (just, nothing = null) {
-        this.val = just !== nothing ? new Just(just) : new Nothing()
-        return this.val
-    }
-    this.just = function (val) {
-        this.val = new Just(val)
-        return this.val
-    }
-    this.nothing = function () {
-        this.val = new Nothing()
-        return this.val
-    }
+}
+
+Maybe.fromValue = function (just, nothing = null) {
+    this.val = just !== nothing ? Just.of(just) : Nothing.of()
+    return this.val
+}
+
+Maybe.just = function (val) {
+    this.val = Just.of(val)
+    return this.val
+}
+
+Maybe.nothing = function () {
+    this.val = Nothing.of()
+    return this.val
 }
 
 module.exports = { Maybe, Just, Nothing }
