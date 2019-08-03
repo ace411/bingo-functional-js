@@ -19,6 +19,7 @@ const isNumber = require('./isNumber')
 const isRegExp = require('./isRegExp')
 const isString = require('./isString')
 const isSymbol = require('./isSymbol')
+const isNumeric = require('./isNumeric')
 
 module.exports = {
     compose,
@@ -41,5 +42,6 @@ module.exports = {
     isNumber,
     isRegExp,
     isString,
-    isSymbol
+    isSymbol,
+    isNumeric
 }

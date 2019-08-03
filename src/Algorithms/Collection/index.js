@@ -14,9 +14,22 @@ const sizeOf = require('./sizeOf')
 const map = require('./map')
 const filter = require('./filter')
 const fold = require('./fold')
+const partition = require('./partition')
+const partitionBy = require('./partitionBy')
+const fromPairs = require('./fromPairs')
+const toPairs = require('./toPairs')
+const keyExists = require('./keyExists')
+const min = require('./min')
+const max = require('./max')
+const foldRight = require('./foldRight')
+const mean = require('./mean')
 
 module.exports = {
     any,
+    min,
+    max,
+    mean,
+    foldRight,
     every,
     dropLeft,
     dropRight,
@@ -31,5 +44,10 @@ module.exports = {
     map,
     sizeOf,
     filter,
-    fold
+    fold,
+    toPairs,
+    keyExists,
+    fromPairs,
+    partition,
+    partitionBy
 }

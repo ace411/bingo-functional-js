@@ -1,17 +1,20 @@
+const sizeOf = require('./sizeOf')
+
 const filter = (func, list) => {
     if (Array.isArray(list)) {
         let res = []
-        for (let x = 0; x < list.length; x++) {
+        for (let x = 0; x < sizeOf(list); x++) {
             if (func(list[x])) res.push(list[x])
         }
         return res
     }
 
     let res = {}
-    let keys = Object.keys(list)
-    for (let x = 0; x < keys.length; x++) {
-        let _key = keys[x]
-        if (func(list[_key])) res[_key] = list[_key]
+    for (let property in list) {
+        let val = list[property]
+        if (func(val)) {
+            res[property] = val
+        }
     }
 
     return res
