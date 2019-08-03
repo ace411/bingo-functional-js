@@ -1,8 +1,8 @@
 const Writer = require('./writer')
 
-const tell = msg => Writer.of(() => [null, msg])
+const tell = msg => new Writer(() => [null, [msg]])
 
-const writer = (result, output) => Writer.of(() => [result, output])
+const writer = (result, output) => Writer.of(result, output)
 
 const runWriter = writer => writer.run()
 
