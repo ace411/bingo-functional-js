@@ -19,6 +19,7 @@ const partitionBy = require('./partitionBy')
 const fromPairs = require('./fromPairs')
 const toPairs = require('./toPairs')
 const keyExists = require('./keyExists')
+const keysExist = require('./keysExist')
 const min = require('./min')
 const max = require('./max')
 const foldRight = require('./foldRight')
@@ -47,6 +48,7 @@ module.exports = {
     fold,
     toPairs,
     keyExists,
+    keysExist,
     fromPairs,
     partition,
     partitionBy
