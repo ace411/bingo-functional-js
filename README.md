@@ -23,7 +23,7 @@
 
 > A port of the [PHP bingo-functional](https://github.com/ace411/bingo-functional) library
 
-### 🏠 [Homepage](https://github.com/ace411/bingo-functional-js#readme)
+### 🏠 [Homepage](https://ace411.github.io/bingo-functional-js/#/)
 
 ## Install
 
