@@ -1,3 +1,6 @@
+<p align="center">
+    <img alt="logo" src="https://github.com/ace411/bingo-functional-js/blob/master/assets/bingo-functional-js-logo-720x405.png" width=300 />
+</p>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.1.0(beta)-blue.svg?cacheSeconds=2592000" />
   <a href="https://travis-ci.org/ace411/bingo-functional-js">
