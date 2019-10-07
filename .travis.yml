@@ -1,0 +1,12 @@
+language: node_js
+
+node_js:
+  - "node"
+
+install:
+  - npm install --save-dev jest
+  - npm install -g codecov
+
+script:
+  - npm run test
+  - codecov

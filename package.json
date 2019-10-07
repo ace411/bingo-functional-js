@@ -1,0 +1,34 @@
+{
+  "name": "bingo-functional-js",
+  "version": "0.1.0-beta",
+  "description": "A port of the PHP bingo-functional library",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ace411/bingo-functional-js.git"
+  },
+  "keywords": [
+    "bingo",
+    "bingo-functional",
+    "bingo-js",
+    "functional",
+    "helper",
+    "functional",
+    "programming",
+    "fp",
+    "helper",
+    "functions"
+  ],
+  "author": "Lochemem Bruno Michael",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ace411/bingo-functional-js/issues"
+  },
+  "homepage": "https://github.com/ace411/bingo-functional-js#readme",
+  "devDependencies": {
+    "jest": "^22.4.4"
+  }
+}
