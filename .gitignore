@@ -2,3 +2,5 @@
 package-lock.json
 /TODO
 /coverage/
+/*.lock
+/*.log

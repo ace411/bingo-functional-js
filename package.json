@@ -4,7 +4,9 @@
   "description": "A port of the PHP bingo-functional library",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint --color --ext .js --fix src",
+    "lint:dry": "eslint --color --ext .js --fix-dry-run src"
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,15 @@
   },
   "homepage": "https://github.com/ace411/bingo-functional-js#readme",
   "devDependencies": {
+    "@babel/core": "~7",
+    "@babel/preset-env": "~7",
+    "babel-eslint": "~10",
+    "babel-loader": "~8",
+    "eslint": "~6",
+    "eslint-config-airbnb": "~18",
+    "eslint-plugin-import": "~2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.17.0",
     "jest": "^22.4.4"
   }
 }
