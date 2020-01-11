@@ -1,4 +1,5 @@
 const Monadic = require('./monad')
+const monadHelpers = require('./functions')
 const IO = require('./IO')
 const Reader = require('./Reader')
 const State = require('./State')
@@ -9,5 +10,6 @@ module.exports = {
     ...IO,
     ...Reader,
     ...State,
-    ...Writer
+    ...Writer,
+    ...monadHelpers
 }
