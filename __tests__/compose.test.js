@@ -1,12 +1,12 @@
 const F = require('../index')
 
 const functions = {
-    add: (x) => x + 2,
-    mult: (x) => x * 2
+  add: (x) => x + 2,
+  mult: (x) => x * 2,
 }
 
 test('compose chains function calls', () => {
-    let res = F.compose(functions.add, functions.mult)
+  const res = F.compose(functions.add, functions.mult)
 
-    expect(res(2)).toBe(8)
+  expect(res(2)).toBe(8)
 })

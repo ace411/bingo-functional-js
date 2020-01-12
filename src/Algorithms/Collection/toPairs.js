@@ -1,10 +1,10 @@
-const toPairs = object => {
-    let ret = []
-    for (let property in object) {
-        ret.push([property, object[property]])
-    }
+const toPairs = (object) => {
+  const ret = []
+  for (const property in object) {
+    ret.push([property, object[property]])
+  }
 
-    return ret
+  return ret
 }
 
 module.exports = toPairs

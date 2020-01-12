@@ -8,4 +8,6 @@ const mapReader = (func, reader) => reader.map(func)
 
 const ask = () => Reader.of((x) => x)
 
-module.exports = { reader, runReader, mapReader, ask }
+module.exports = {
+  reader, runReader, mapReader, ask,
+}

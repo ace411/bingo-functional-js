@@ -1,11 +1,11 @@
 const fold = (func, list, acc) => {
-    for (let property in list) {
-        let val = list[property]
+  for (const property in list) {
+    const val = list[property]
 
-        acc = func(acc, val)
-    }
+    acc = func(acc, val)
+  }
 
-    return acc
+  return acc
 }
 
 module.exports = fold

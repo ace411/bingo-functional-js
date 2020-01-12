@@ -1,17 +1,17 @@
 const dropLeft = (list, count = 1) => {
-    if (Array.isArray(list)) {
-        list.splice(0, count)
-        return list    
-    }
+  if (Array.isArray(list)) {
+    list.splice(0, count)
+    return list
+  }
 
-    let keys = Object.keys(list)
-    keys.splice(0, count)
+  const keys = Object.keys(list)
+  keys.splice(0, count)
 
-    return keys.reduce((obj, key) => {
-        obj[key] = list[key]
+  return keys.reduce((obj, key) => {
+    obj[key] = list[key]
 
-        return obj
-    }, {})
+    return obj
+  }, {})
 }
 
 module.exports = dropLeft

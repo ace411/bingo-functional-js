@@ -1,3 +1,3 @@
-const isNull = val => val === null
+const isNull = (val) => val === null
 
 module.exports = isNull

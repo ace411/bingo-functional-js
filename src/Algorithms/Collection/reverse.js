@@ -1,11 +1,11 @@
 const reverse = (list) => {
-    if (Array.isArray(list)) return list.reverse()
+  if (Array.isArray(list)) return list.reverse()
 
-    return Object.keys(list).reverse().reduce((obj, key) => {
-        obj[key] = list[key]
+  return Object.keys(list).reverse().reduce((obj, key) => {
+    obj[key] = list[key]
 
-        return obj
-    }, {})
+    return obj
+  }, {})
 }
 
 module.exports = reverse

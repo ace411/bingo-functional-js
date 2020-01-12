@@ -6,10 +6,10 @@ const State = require('./State')
 const Writer = require('./Writer')
 
 module.exports = {
-    Monadic,
-    ...IO,
-    ...Reader,
-    ...State,
-    ...Writer,
-    ...monadHelpers
+  Monadic,
+  ...IO,
+  ...Reader,
+  ...State,
+  ...Writer,
+  ...monadHelpers,
 }

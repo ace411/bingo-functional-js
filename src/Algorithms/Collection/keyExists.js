@@ -2,17 +2,17 @@ const head = require('./head')
 const { isUndefined } = require('../Function')
 
 const keyExists = (list, key) => {
-    let ret = []
+  const ret = []
 
-    for (let property in list) {
-        if (key.toString() === property) {
-            ret.push(true)
-        }
+  for (const property in list) {
+    if (key.toString() === property) {
+      ret.push(true)
     }
+  }
 
-    let res = head(ret)
+  const res = head(ret)
 
-    return !isUndefined(res) ? res : false
+  return !isUndefined(res) ? res : false
 }
 
 module.exports = keyExists

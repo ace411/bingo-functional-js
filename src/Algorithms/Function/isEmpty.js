@@ -9,7 +9,7 @@ const isSymbol = require('./isSymbol')
 const isError = require('./isError')
 const sizeOf = require('../Collection/sizeOf')
 
-const isEmpty = (val) => (val instanceof Date)
+const isEmpty = (val) => (!((val instanceof Date)
     || isError(val)
     || isNull(val)
     || isSymbol(val)
@@ -18,9 +18,7 @@ const isEmpty = (val) => (val instanceof Date)
     || isFunction(val)
     || isUndefined(val)
     || (isString(val) && val.length > 0)
-    || isNumber(val) 
-    || (sizeOf(val) > 0)
-        ? false
-        : true
+    || isNumber(val)
+    || (sizeOf(val) > 0)))
 
 module.exports = isEmpty

@@ -1,10 +1,10 @@
 const map = (func, list) => {
-    let res = Array.isArray(list) ? [] : {}
-    for (let property in list) {
-        res[property] = func(list[property])
-    }
+  const res = Array.isArray(list) ? [] : {}
+  for (const property in list) {
+    res[property] = func(list[property])
+  }
 
-    return res
+  return res
 }
 
 module.exports = map

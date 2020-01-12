@@ -1,7 +1,7 @@
 const flip = (func, ...args) => {
-    const argList = args.reverse()
+  const argList = args.reverse()
 
-    return func(...argList)
+  return func(...argList)
 }
 
 module.exports = flip
