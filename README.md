@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="logo" src="https://github.com/ace411/bingo-functional-js/blob/master/assets/bingo-functional-js-logo-720x405.png" width=300 />
+    <img alt="logo" src="https://raw.githubusercontent.com/ace411/bingo-functional-js/master/assets/bingo-functional-js-logo-720x405.png" width=300 />
 </p>
 <h1 align="center">Welcome to bingo-functional-js 👋</h1>
 <p>
@@ -28,13 +28,25 @@
 ## Install
 
 ```sh
-npm install
+npm install bingo-functional-js
+```
+
+**OR**
+
+```sh
+yarn add bingo-functional-js
 ```
 
 ## Run tests
 
 ```sh
 npm run test
+```
+
+**OR**
+
+```sh
+yarn test
 ```
 
 ## Author
@@ -50,6 +62,10 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 ## Show your support
 
 Give a ⭐️ if this project helped you!
+
+Also, consider buying me a coffee if you feel I deserve one.
+
+<a href="https://www.buymeacoffee.com/agiroLoki" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/lato-white.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
 
 ## 📝 License
 
