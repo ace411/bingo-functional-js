@@ -4,13 +4,14 @@ const sizeOf = require('./sizeOf')
 const fromPairs = (list) => {
   const ret = fold((obj, item) => {
     const [key, val] = Array.isArray(item) && sizeOf(item) === 2 && item
+    const result = obj
 
     if (!key || !val) {
-      return obj
+      return result
     }
 
-    obj[key] = val
-    return obj
+    result[key] = val
+    return result
   }, list, {})
 
   return ret

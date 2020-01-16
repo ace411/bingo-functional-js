@@ -24,6 +24,7 @@ const min = require('./min')
 const max = require('./max')
 const foldRight = require('./foldRight')
 const mean = require('./mean')
+const flatten = require('./flatten')
 
 module.exports = {
   any,
@@ -52,4 +53,5 @@ module.exports = {
   fromPairs,
   partition,
   partitionBy,
+  flatten,
 }

@@ -1,5 +1,24 @@
-const dropLeft = require('./dropLeft')
+const head = require('./head')
+const { isJsonObject } = require('../Function')
 
-const extend = (...lists) => lists[0].concat(...dropLeft(lists, 1))
+const extend = (...lists) => {
+  const first = head(lists)
+  let result = Array.isArray(first) || !isJsonObject(first) ? [] : {}
+
+  for (let idx = 0; idx < lists.length; idx += 1) {
+    const listVal = lists[idx]
+    if (Array.isArray(result)) {
+      if (Array.isArray(listVal)) {
+        result.push(...listVal)
+      } else {
+        result.push(listVal)
+      }
+    } else if (isJsonObject(result)) {
+      result = { ...result, ...listVal }
+    }
+  }
+
+  return result
+}
 
 module.exports = extend

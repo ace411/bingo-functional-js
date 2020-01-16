@@ -3,8 +3,10 @@ const fold = require('./fold')
 
 const mean = (list) => {
   const sum = fold((acc, val) => {
-    acc += val
-    return acc
+    let result = acc
+    result += val
+
+    return result
   }, list, 0)
 
   return sum / sizeOf(list)

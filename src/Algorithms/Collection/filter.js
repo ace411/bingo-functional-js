@@ -1,23 +1,29 @@
 const sizeOf = require('./sizeOf')
 
-const filter = (func, list) => {
-  if (Array.isArray(list)) {
-    const res = []
-    for (let x = 0; x < sizeOf(list); x++) {
-      if (func(list[x])) res.push(list[x])
-    }
-    return res
+const filterArray = (func, list) => {
+  const result = []
+
+  for (let idx = 0; idx < sizeOf(list); idx += 1) {
+    if (func(list[idx])) result.push(list[idx])
   }
 
-  const res = {}
-  for (const property in list) {
-    const val = list[property]
-    if (func(val)) {
-      res[property] = val
-    }
-  }
-
-  return res
+  return result
 }
+
+const filterObj = (func, list) => {
+  const result = {}
+
+  for (const [key, value] of Object.entries(list)) {
+    if (func(value)) {
+      result[key] = value
+    }
+  }
+
+  return result
+}
+
+const filter = (func, list) => (Array.isArray(list)
+  ? filterArray(func, list)
+  : filterObj(func, list))
 
 module.exports = filter
