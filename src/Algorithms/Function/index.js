@@ -20,6 +20,7 @@ const isRegExp = require('./isRegExp')
 const isString = require('./isString')
 const isSymbol = require('./isSymbol')
 const isNumeric = require('./isNumeric')
+const trampoline = require('./trampoline')
 
 module.exports = {
   compose,
@@ -44,4 +45,5 @@ module.exports = {
   isString,
   isSymbol,
   isNumeric,
+  trampoline,
 }

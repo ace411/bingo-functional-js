@@ -1,3 +1,5 @@
-const constantFunction = (...args) => (() => args[0])
+const head = require('../Collection/head')
+
+const constantFunction = (...args) => (() => head(args))
 
 module.exports = constantFunction

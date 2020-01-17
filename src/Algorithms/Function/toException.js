@@ -1,12 +1,13 @@
-const isUndefined = require('./isUndefined')
+const isFunction = require('./isFunction')
+const isNull = require('./isNull')
 
-const toException = (func) => (...args) => {
+const toException = (func, handler = null) => (...args) => {
   try {
     return func(...args)
   } catch (exception) {
-    return isUndefined(exception.message)
-      ? exception
-      : exception.message
+    return isNull(handler) || !isFunction(handler)
+      ? exception.message
+      : handler(exception)
   }
 }
 

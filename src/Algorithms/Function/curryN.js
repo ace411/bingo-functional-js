@@ -1,10 +1,9 @@
-const extend = require('../Collection/extend')
 const sizeOf = require('../Collection/sizeOf')
 
 const curryN = (argCount, func) => {
   const acc = function (args) {
-    return function () {
-      const fnArgs = extend(args, Array.from(arguments))
+    return function (...inner) {
+      const fnArgs = args.concat(inner)
 
       if (argCount <= sizeOf(fnArgs)) {
         return func.apply(this, fnArgs)
