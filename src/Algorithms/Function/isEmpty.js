@@ -1,3 +1,14 @@
+/**
+ * isEmpty function
+ * isEmpty :: a -> Bool
+ * @param {*} val
+ * @returns {boolean}
+ * @example
+ *
+ * isEmpty({})
+ * // => true
+ */
+
 const isUndefined = require('./isUndefined')
 const isFunction = require('./isFunction')
 const isNumber = require('./isNumber')

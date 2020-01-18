@@ -1,3 +1,15 @@
+/**
+ * trampoline function
+ * trampoline :: (a -> b) -> a -> b
+ * @param {function} func
+ * @returns {*}
+ * @example
+ *
+ * let fib = trampoline((x) => x < 2 ? x : fib(x - 1) + fib(x - 2))
+ * fib(30)
+ * // => 832040
+ */
+
 const reverse = require('../Collection/reverse')
 const isEmpty = require('./isEmpty')
 

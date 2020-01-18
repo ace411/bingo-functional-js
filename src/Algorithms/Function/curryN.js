@@ -1,3 +1,14 @@
+/**
+ * curry function
+ * curry :: Int -> ((a, b) -> c) -> a -> b -> c
+ * @param {function} func
+ * @returns {function}
+ * @example
+ *
+ * curry((x, y) => x + y)(2)(3)
+ * // => 5
+ */
+
 const sizeOf = require('../Collection/sizeOf')
 
 const curryN = (argCount, func) => {
