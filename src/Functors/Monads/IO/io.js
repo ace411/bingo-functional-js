@@ -1,26 +1,26 @@
 const Monadic = require('../monad')
 const { isFunction, constantFunction } = require('../../../Algorithms/Function')
 
-function IO(func) {
-  Monadic.call(this, isFunction(func) ? func : constantFunction(func))
+function IO(unsafe) {
+  Monadic.call(this, isFunction(unsafe) ? unsafe : constantFunction(unsafe))
   this.ap = function (io) {
     const ret = this.exec()
     return io.map(ret)
   }
-  this.bind = function (func) {
+  this.bind = function (operation) {
     const ret = this.exec()
-    return func(ret)
+    return operation(ret)
   }
-  this.map = function (func) {
+  this.map = function (operation) {
     const ret = this.exec()
-    return new IO(func(ret))
+    return new IO(operation(ret))
   }
   this.flatMap = function (func) {
     const ret = this.exec()
     return func(ret)
   }
   this.exec = function () {
-    return this.val()
+    return (this.val)()
   }
 }
 
