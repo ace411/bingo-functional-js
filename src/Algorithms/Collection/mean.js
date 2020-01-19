@@ -1,3 +1,14 @@
+/**
+ * mean function
+ * 
+ * mean :: [a] -> Float
+ * @param {(array|object)} list
+ * @returns {number}
+ * @example
+ * 
+ * mean([2, 7, 9])
+ * // => 6
+ */
 const sizeOf = require('./sizeOf')
 const fold = require('./fold')
 

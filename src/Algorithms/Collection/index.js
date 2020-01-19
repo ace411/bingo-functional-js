@@ -25,6 +25,7 @@ const max = require('./max')
 const foldRight = require('./foldRight')
 const mean = require('./mean')
 const flatten = require('./flatten')
+const mapDeep = require('./mapDeep')
 
 module.exports = {
   any,
@@ -32,6 +33,7 @@ module.exports = {
   max,
   mean,
   foldRight,
+  mapDeep,
   every,
   dropLeft,
   dropRight,

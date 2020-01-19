@@ -1,3 +1,16 @@
+/**
+ * keyExists function
+ *
+ * keyExists :: [a, b] -> String -> Bool
+ * @param {(array|object)} haystack
+ * @param {string} needle
+ * @returns {boolean}
+ * @example
+ *
+ * keyExists(['foo', 'bar', 'baz'], '2')
+ * // => true
+ */
+
 const sizeOf = require('./sizeOf')
 
 const keyExists = (haystack, needle) => {

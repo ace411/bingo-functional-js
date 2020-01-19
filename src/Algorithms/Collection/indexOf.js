@@ -1,3 +1,16 @@
+/**
+ * indexOf function
+ *
+ * indexOf :: Object k v -> v -> k
+ * @param {(array|object)} haystack
+ * @param {*} needle
+ * @returns {(string|number)}
+ * @example
+ *
+ * indexOf({ a: 'foo', b: 'bar' }, 'bar')
+ * // => 'b'
+ */
+
 const head = require('./head')
 const isNumeric = require('../Function/isNumeric')
 

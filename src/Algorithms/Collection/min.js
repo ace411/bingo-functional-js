@@ -1,3 +1,14 @@
+/**
+ * min function
+ * 
+ * min :: [a] -> Int
+ * @param {(array|object)} list
+ * @returns {number}
+ * @example
+ * 
+ * min([8, 7, 13, 2])
+ * // => 2
+ */
 const fold = require('./fold')
 const head = require('./head')
 

@@ -1,3 +1,14 @@
+/**
+ * dropLeft function
+ * 
+ * dropLeft :: [a] -> Int -> [a]
+ * @param {(array|object)} list
+ * @param {number} count
+ * @example
+ * 
+ * dropLeft([3, 4, 6, 8], 2)
+ * // => [6, 8]
+ */
 const fold = require('./fold')
 
 const dropFromArray = (list, count = 1) => {

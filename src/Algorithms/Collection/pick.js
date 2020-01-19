@@ -1,3 +1,15 @@
+/**
+ * pick function
+ *
+ * pick :: [a] -> a -> a
+ * @param {(array|object)} haystack
+ * @param {*} needle
+ * @returns {*}
+ * @example
+ *
+ * pick([1, 4, [9, 7]], 9)
+ * // => 9
+ */
 const head = require('./head')
 const filter = require('./filter')
 const flatten = require('./flatten')

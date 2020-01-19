@@ -1,3 +1,14 @@
+/**
+ * reverse function
+ *
+ * reverse :: [a, b] -> [b, a]
+ * @param {(array|object)} list
+ * @returns {(array|object)}
+ * @example
+ *
+ * reverse(['foo', 'bar'])
+ * // => ['bar', 'foo']
+ */
 const fold = require('./fold')
 
 const reverseArray = (list) => list.reverse()

@@ -1,3 +1,14 @@
+/**
+ * max function
+ *
+ * max :: [a] -> Int
+ * @param {array} list
+ * @returns {number}
+ * @example
+ *
+ * max([8, 7, 13, 2])
+ * // => 13
+ */
 const fold = require('./fold')
 const isUndefined = require('../Function/isUndefined')
 

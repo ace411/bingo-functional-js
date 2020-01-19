@@ -1,3 +1,14 @@
+/**
+ * pluck function
+ *
+ * pluck :: Object k v -> k -> [v]
+ * @param {(array|object)} haystack
+ * @param {*} needle
+ * @returns {array}
+ *
+ * pluck({ a: 2, b: 3, c: { a: 5, d: 12 } }, 'a')
+ * // => [2, 5]
+ */
 const filter = require('./filter')
 const flatten = require('./flatten')
 const { isJsonObject } = require('../Function')

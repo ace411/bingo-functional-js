@@ -1,3 +1,15 @@
+/**
+ * last function
+ *
+ * last :: [a, b] -> b
+ * @param {(array|object)} list
+ * @returns {*}
+ * @example
+ *
+ * last({ foo: 'foo', bar: 'bar' })
+ * // => 'bar'
+ */
+
 const sizeOf = require('./sizeOf')
 const { partialRight } = require('../Function')
 

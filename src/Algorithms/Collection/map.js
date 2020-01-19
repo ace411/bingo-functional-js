@@ -1,3 +1,16 @@
+/**
+ * map function
+ *
+ * map :: (a -> b) -> [a] -> [b]
+ * @param {function} func
+ * @param {(array|object)} list
+ * @returns {(array|object)}
+ * @example
+ *
+ * map((x) => x ** 2, [1, 2, 5])
+ * // => [1, 4, 25]
+ */
+
 const map = (func, list) => {
   const res = Array.isArray(list) ? [] : {}
 

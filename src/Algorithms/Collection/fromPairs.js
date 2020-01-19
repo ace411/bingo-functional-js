@@ -1,3 +1,14 @@
+/**
+ * fromPairs function
+ *
+ * fromPairs :: [[k, v]] -> Object k v
+ * @param {array} list
+ * @returns {object}
+ * @example
+ *
+ * fromPairs([['foo', 'bar'], ['baz', 'fooz']])
+ * // => { foo: 'bar', baz: 'fooz' }
+ */
 const fold = require('./fold')
 const sizeOf = require('./sizeOf')
 
