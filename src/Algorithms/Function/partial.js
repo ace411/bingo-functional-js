@@ -1,11 +1,11 @@
 /**
  * partial function
  * partial :: ((a, b, c) -> d) -> a -> (b, c) -> d
- * @param {*} func 
+ * @param {*} func
  * @param  {...any} args
- * @returns {function} 
+ * @returns {function}
  * @example
- * 
+ *
  * partial((x, y, z) => (x / y) + z, 4)(2, 3)
  * // => 5
  */

@@ -1,10 +1,10 @@
 /**
  * isUndefined function
  * isUndefined :: a -> Bool
- * @param {*} val 
+ * @param {*} val
  * @returns {boolean}
  * @example
- * 
+ *
  * isUndefined(undefined)
  * // => true
  */

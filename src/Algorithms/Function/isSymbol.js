@@ -1,10 +1,10 @@
 /**
  * isSymbol function
  * isSymbol :: a -> bool
- * @param {*} val 
+ * @param {*} val
  * @returns {boolean}
  * @example
- * 
+ *
  * isSymbol(Symbol('foo'))
  * // => true
  */

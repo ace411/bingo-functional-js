@@ -4,7 +4,7 @@
  * @param {*} value
  * @returns {*}
  * @example
- * 
+ *
  * identity('foo')
  * // => 'foo'
  */

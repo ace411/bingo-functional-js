@@ -5,7 +5,7 @@
  * @param {function} [handler = null]
  * @returns {function}
  * @example
- * 
+ *
  * toException((x, y) => {
  *  if (y === 0) throw new Error('division by zero')
  *  return x / y

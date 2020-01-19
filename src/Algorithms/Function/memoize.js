@@ -4,8 +4,8 @@
  * @param {function} func
  * @return {function}
  * @example
- * 
- * let factorial = (x) => x < 2 ? 1 : factorial(x - 1) * x 
+ *
+ * let factorial = (x) => x < 2 ? 1 : factorial(x - 1) * x
  * memoize(factorial)(15)
  * // => 1307674368000
  */
