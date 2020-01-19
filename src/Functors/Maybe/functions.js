@@ -180,12 +180,41 @@ const mapMaybe = (func, values) => {
   return mapped(values)
 }
 
+/**
+ * lift function
+ * renders function amenable to Maybe type arguments
+ *
+ * lift :: Maybe m => (a -> b) -> m a -> m b
+ * @param {function} func
+ * @return {function}
+ * @example
+ *
+ * let square = lift((x) => x ** 2)
+ * square(fromValue(2))
+ * // => [Just]
+ */
+const lift = (func) => function (...args) {
+  let finalArgs
+  if (fold(
+    (status, instance) => (isNothing(instance) ? false : status),
+    args,
+    true,
+  )) {
+    finalArgs = map((instance) => instance.getJust(), args)
+
+    return fromValue(func(...finalArgs))
+  }
+
+  return fromValue(null)
+}
+
 module.exports = {
   fromValue,
   fromJust,
   isJust,
   isNothing,
   maybe,
+  lift,
   fromMaybe,
   catMaybes,
   listToMaybe,

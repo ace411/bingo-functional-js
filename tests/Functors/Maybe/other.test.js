@@ -2,11 +2,13 @@ const { describe, Try } = require('riteway')
 const {
   listToMaybe,
   maybeToList,
+  isFunction,
   catMaybes,
   fromValue,
   mapMaybe,
   Nothing,
   Just,
+  lift,
 } = require('../../../index')
 
 describe('listToMaybe()', async (assert) => {
@@ -84,5 +86,28 @@ describe('mapMaybe()', async (assert) => {
     should: 'throw an error',
     actual: Try(mapMaybe, (val) => val ** 2, [3, 4, 5]).toString(),
     expected: 'TypeError: val.flatMap is not a function',
+  })
+})
+
+describe('lift()', async (assert) => {
+  assert({
+    given: 'no arguments',
+    should: 'return a function',
+    actual: isFunction(lift()),
+    expected: true,
+  })
+
+  assert({
+    given: 'a function and its arguments',
+    should: 'return a Just instance',
+    actual: lift((val) => val ** 3)(fromValue(2)) instanceof Just,
+    expected: true,
+  })
+
+  assert({
+    given: 'a function and its arguments',
+    should: 'return the result of the function wrapped in a Just instance',
+    actual: lift((val) => val ** 3)(fromValue(2)).getJust(),
+    expected: 8,
   })
 })
