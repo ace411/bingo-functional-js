@@ -2,9 +2,9 @@ const Reader = require('./reader')
 
 const reader = (operation) => Reader.of(operation)
 
-const runReader = (reader, val) => reader.run(val)
+const runReader = (instance, val) => instance.run(val)
 
-const mapReader = (func, reader) => reader.map(func)
+const mapReader = (func, instance) => instance.map(func)
 
 const ask = () => Reader.of((x) => x)
 
