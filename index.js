@@ -4,10 +4,10 @@ const string = require('./src/Algorithms/String')
 const maybe = require('./src/Functors/Maybe')
 const monads = require('./src/Functors/Monads')
 
-module.exports = { 
-    ...collection, 
-    ...func, 
-    ...string, 
-    ...maybe,
-    ...monads 
+module.exports = {
+  ...collection,
+  ...func,
+  ...string,
+  ...maybe,
+  ...monads,
 }
