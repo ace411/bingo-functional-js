@@ -1,7 +1,7 @@
 const any = require('./any')
 const dropLeft = require('./dropLeft')
 const dropRight = require('./dropRight')
-const every= require('./every')
+const every = require('./every')
 const extend = require('./extend')
 const head = require('./head')
 const indexOf = require('./indexOf')
@@ -24,32 +24,36 @@ const min = require('./min')
 const max = require('./max')
 const foldRight = require('./foldRight')
 const mean = require('./mean')
+const flatten = require('./flatten')
+const mapDeep = require('./mapDeep')
 
 module.exports = {
-    any,
-    min,
-    max,
-    mean,
-    foldRight,
-    every,
-    dropLeft,
-    dropRight,
-    extend,
-    head,
-    indexOf,
-    last,
-    pick,
-    pluck,
-    reverse,
-    tail,
-    map,
-    sizeOf,
-    filter,
-    fold,
-    toPairs,
-    keyExists,
-    keysExist,
-    fromPairs,
-    partition,
-    partitionBy
+  any,
+  min,
+  max,
+  mean,
+  foldRight,
+  mapDeep,
+  every,
+  dropLeft,
+  dropRight,
+  extend,
+  head,
+  indexOf,
+  last,
+  pick,
+  pluck,
+  reverse,
+  tail,
+  map,
+  sizeOf,
+  filter,
+  fold,
+  toPairs,
+  keyExists,
+  keysExist,
+  fromPairs,
+  partition,
+  partitionBy,
+  flatten,
 }

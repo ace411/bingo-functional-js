@@ -1,19 +1,31 @@
+/**
+ * fromPairs function
+ *
+ * fromPairs :: [[k, v]] -> Object k v
+ * @param {array} list
+ * @returns {object}
+ * @example
+ *
+ * fromPairs([['foo', 'bar'], ['baz', 'fooz']])
+ * // => { foo: 'bar', baz: 'fooz' }
+ */
 const fold = require('./fold')
 const sizeOf = require('./sizeOf')
 
-const fromPairs = list => {
-    let ret = fold((obj, item) => {
-        const [ key, val ] = Array.isArray(item) && sizeOf(item) === 2 && item
+const fromPairs = (list) => {
+  const ret = fold((obj, item) => {
+    const [key, val] = Array.isArray(item) && sizeOf(item) === 2 && item
+    const result = obj
 
-        if (!key || !val) {
-            return obj
-        }
-        
-        obj[key] = val
-        return obj
-    }, list, {})
+    if (!key || !val) {
+      return result
+    }
 
-    return ret
+    result[key] = val
+    return result
+  }, list, {})
+
+  return ret
 }
 
 module.exports = fromPairs

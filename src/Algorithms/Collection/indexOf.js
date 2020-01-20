@@ -1,22 +1,29 @@
+/**
+ * indexOf function
+ *
+ * indexOf :: Object k v -> v -> k
+ * @param {(array|object)} haystack
+ * @param {*} needle
+ * @returns {(string|number)}
+ * @example
+ *
+ * indexOf({ a: 'foo', b: 'bar' }, 'bar')
+ * // => 'b'
+ */
+
 const head = require('./head')
-const { isNumeric } = require('../Function')
+const isNumeric = require('../Function/isNumeric')
 
 const indexOf = (haystack, needle) => {
-    let index = []
+  const index = []
 
-    for (let property in haystack) {
-        let val = haystack[property]
-
-        if (val === needle) {
-            index.push(
-                isNumeric(property)
-                    ? Number.parseInt(property)
-                    : property
-            )
-        }
+  for (const [key, value] of Object.entries(haystack)) {
+    if (value === needle) {
+      index.push(isNumeric(key) ? Number.parseInt(key, 10) : key)
     }
+  }
 
-    return head(index)
+  return head(index)
 }
 
 module.exports = indexOf

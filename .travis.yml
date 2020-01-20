@@ -4,9 +4,9 @@ node_js:
   - "node"
 
 install:
-  - npm install --save-dev jest
-  - npm install -g codecov
+  - yarn install
+  - yarn global add codecov
 
 script:
-  - npm run test
+  - yarn test
   - codecov

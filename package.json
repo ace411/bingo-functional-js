@@ -4,7 +4,9 @@
   "description": "A port of the PHP bingo-functional library",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "nyc riteway tests/**/*.test.js | tap-nirvana",
+    "lint": "eslint --color --ext .js --fix src tests",
+    "lint:dry": "eslint --color --ext .js --fix-dry-run src tests"
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,18 @@
   },
   "homepage": "https://github.com/ace411/bingo-functional-js#readme",
   "devDependencies": {
-    "jest": "^22.4.4"
+    "@babel/core": "~7",
+    "@babel/preset-env": "~7",
+    "babel-eslint": "~10",
+    "babel-loader": "~8",
+    "deep-equal": "~2.0.1",
+    "eslint": "~6",
+    "eslint-config-airbnb": "~18",
+    "eslint-plugin-import": "~2",
+    "eslint-plugin-jsx-a11y": "~6.2.3",
+    "eslint-plugin-react": "~7.17.0",
+    "nyc": "~15.0.0",
+    "riteway": "~6.1.1",
+    "tap-nirvana": "~1.1.0"
   }
 }

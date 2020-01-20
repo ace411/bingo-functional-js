@@ -1,18 +1,28 @@
-const head = require('./head')
-const { isUndefined } = require('../Function')
+/**
+ * keyExists function
+ *
+ * keyExists :: [a, b] -> String -> Bool
+ * @param {(array|object)} haystack
+ * @param {string} needle
+ * @returns {boolean}
+ * @example
+ *
+ * keyExists(['foo', 'bar', 'baz'], '2')
+ * // => true
+ */
 
-const keyExists = (list, key) => {
-    let ret = []
+const sizeOf = require('./sizeOf')
 
-    for (let property in list) {
-        if (key.toString() === property) {
-            ret.push(true)
-        }
+const keyExists = (haystack, needle) => {
+  const result = []
+
+  for (const [key, value] of Object.entries(haystack)) {
+    if (needle === key) {
+      result.push(value)
     }
+  }
 
-    let res = head(ret)
-
-    return !isUndefined(res) ? res : false
+  return sizeOf(result) !== 0
 }
 
 module.exports = keyExists

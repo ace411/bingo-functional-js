@@ -3,3 +3,7 @@
 /node_modules/
 /coverage/
 /TODO
+/coverage/
+/*.lock
+/*.log
+/.nyc*

@@ -1,11 +1,31 @@
-const reverse = (list) => {
-    if (Array.isArray(list)) return list.reverse()
+/**
+ * reverse function
+ *
+ * reverse :: [a, b] -> [b, a]
+ * @param {(array|object)} list
+ * @returns {(array|object)}
+ * @example
+ *
+ * reverse(['foo', 'bar'])
+ * // => ['bar', 'foo']
+ */
+const fold = require('./fold')
 
-    return Object.keys(list).reverse().reduce((obj, key) => {
-        obj[key] = list[key]
+const reverseArray = (list) => list.reverse()
 
-        return obj
-    }, {})
+const reverseObject = (list) => {
+  const keys = Object.keys(list).reverse()
+
+  return fold((obj, value) => {
+    const result = obj
+    result[value] = list[value]
+
+    return result
+  }, keys, {})
 }
+
+const reverse = (list) => (Array.isArray(list)
+  ? reverseArray(list)
+  : reverseObject(list))
 
 module.exports = reverse

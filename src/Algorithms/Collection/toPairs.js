@@ -1,10 +1,22 @@
-const toPairs = object => {
-    let ret = []
-    for (let property in object) {
-        ret.push([property, object[property]])
-    }
+/**
+ * toPairs function
+ *
+ * toPairs :: Object k v -> [[k, v]]
+ * @param {object} object
+ * @returns {array}
+ * @example
+ *
+ * toPairs({ foo: 'bar', baz: 'fooz' })
+ * // => [['foo', 'bar'], ['baz', 'fooz']]
+ */
+const toPairs = (object) => {
+  const result = []
 
-    return ret
+  for (const [key, value] of Object.entries(object)) {
+    result.push([key, value])
+  }
+
+  return result
 }
 
 module.exports = toPairs

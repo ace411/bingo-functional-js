@@ -1,23 +1,41 @@
+/**
+ * filter function
+ *
+ * filter :: (a -> Bool) -> [a] -> [a]
+ * @param {function} func
+ * @param {(array|object)} list
+ * @returns {*}
+ * @example
+ *
+ * filter((x) => x % 2 === 0, [2, 9, 3, 14])
+ * // => [2, 14]
+ */
 const sizeOf = require('./sizeOf')
 
-const filter = (func, list) => {
-    if (Array.isArray(list)) {
-        let res = []
-        for (let x = 0; x < sizeOf(list); x++) {
-            if (func(list[x])) res.push(list[x])
-        }
-        return res
-    }
+const filterArray = (func, list) => {
+  const result = []
 
-    let res = {}
-    for (let property in list) {
-        let val = list[property]
-        if (func(val)) {
-            res[property] = val
-        }
-    }
+  for (let idx = 0; idx < sizeOf(list); idx += 1) {
+    if (func(list[idx])) result.push(list[idx])
+  }
 
-    return res
+  return result
 }
 
-module.exports= filter
+const filterObj = (func, list) => {
+  const result = {}
+
+  for (const [key, value] of Object.entries(list)) {
+    if (func(value)) {
+      result[key] = value
+    }
+  }
+
+  return result
+}
+
+const filter = (func, list) => (Array.isArray(list)
+  ? filterArray(func, list)
+  : filterObj(func, list))
+
+module.exports = filter
