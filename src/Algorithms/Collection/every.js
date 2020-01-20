@@ -1,12 +1,12 @@
 /**
  * every function
- * 
+ *
  * every :: [a] -> (a -> Bool) -> Bool
  * @param {(array|object)} list
  * @param {function} func
  * @returns {boolean}
  * @example
- * 
+ *
  * every([3, 7, 9], (x) => x % 2 !== 0)
  * // => true
  */

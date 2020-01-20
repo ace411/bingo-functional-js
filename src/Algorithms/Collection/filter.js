@@ -1,12 +1,12 @@
 /**
  * filter function
- * 
+ *
  * filter :: (a -> Bool) -> [a] -> [a]
  * @param {function} func
  * @param {(array|object)} list
  * @returns {*}
  * @example
- * 
+ *
  * filter((x) => x % 2 === 0, [2, 9, 3, 14])
  * // => [2, 14]
  */

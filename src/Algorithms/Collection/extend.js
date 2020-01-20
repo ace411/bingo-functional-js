@@ -1,11 +1,11 @@
 /**
  * extend function
- * 
+ *
  * extend :: [a] -> [b] -> [a, b]
  * @param {...(array|object)} lists
  * @returns {array}
  * @example
- * 
+ *
  * extend({ a: 'foo', b: 'bar' }, { c: 'baz' })
  * // => { a: 'foo', b: 'bar', c: 'baz' }
  */

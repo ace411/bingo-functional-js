@@ -1,13 +1,13 @@
 /**
  * fold function
- * 
- * fold :: (a -> b -> a) -> [b] -> a -> a 
- * @param {function} func 
- * @param {(array|object)} list 
- * @param {*} acc 
+ *
+ * fold :: (a -> b -> a) -> [b] -> a -> a
+ * @param {function} func
+ * @param {(array|object)} list
+ * @param {*} acc
  * @returns {*}
  * @example
- * 
+ *
  * fold((acc, val) => acc + val, [1, 2], 0)
  * // => 3
  */

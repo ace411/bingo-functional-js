@@ -1,11 +1,11 @@
 /**
  * mean function
- * 
+ *
  * mean :: [a] -> Float
  * @param {(array|object)} list
  * @returns {number}
  * @example
- * 
+ *
  * mean([2, 7, 9])
  * // => 6
  */
