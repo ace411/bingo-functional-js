@@ -26,12 +26,14 @@ const foldRight = require('./foldRight')
 const mean = require('./mean')
 const flatten = require('./flatten')
 const mapDeep = require('./mapDeep')
+const reject = require('./reject')
 
 module.exports = {
   any,
   min,
   max,
   mean,
+  reject,
   foldRight,
   mapDeep,
   every,

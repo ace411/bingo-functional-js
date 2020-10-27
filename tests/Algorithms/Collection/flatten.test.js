@@ -11,9 +11,9 @@ describe('flatten()', async (assert) => {
 
   assert({
     given: 'no arguments',
-    should: 'throw an error',
-    actual: Try(flatten).toString(),
-    expected: 'TypeError: Cannot convert undefined or null to object',
+    should: 'return an empty list',
+    actual: flatten(),
+    expected: [],
   })
 
   assert({

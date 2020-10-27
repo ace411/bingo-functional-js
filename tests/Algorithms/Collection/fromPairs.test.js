@@ -1,4 +1,4 @@
-const { describe, Try } = require('riteway')
+const { describe } = require('riteway')
 const { fromPairs } = require('../../../index')
 
 describe('fromPairs()', async (assert) => {
@@ -11,9 +11,9 @@ describe('fromPairs()', async (assert) => {
 
   assert({
     given: 'no arguments',
-    should: 'throw an error',
-    actual: Try(fromPairs).toString(),
-    expected: 'TypeError: Cannot convert undefined or null to object',
+    should: 'return an empty object',
+    actual: fromPairs(),
+    expected: {},
   })
 
   assert({

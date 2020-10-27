@@ -1,3 +1,6 @@
+const head = require('./head')
+const { isJsonObject } = require('../Function')
+
 /**
  * extend function
  *
@@ -9,9 +12,6 @@
  * extend({ a: 'foo', b: 'bar' }, { c: 'baz' })
  * // => { a: 'foo', b: 'bar', c: 'baz' }
  */
-const head = require('./head')
-const { isJsonObject } = require('../Function')
-
 const extend = (...lists) => {
   const first = head(lists)
   let result = Array.isArray(first) || !isJsonObject(first) ? [] : {}

@@ -1,7 +1,9 @@
+const _partial = require('../Internal/_partial')
+
 /**
  * partialRight function
- * partialRight :: ((a, b, c) -> d) -> c -> (b, a) -> d
- * @param {*} func
+ * partial :: (a, b) -> (b) a
+ * @param {function} func
  * @param  {...any} args
  * @returns {function}
  * @example
@@ -10,12 +12,6 @@
  * // => 5
  */
 
-const reverse = require('../Collection/reverse')
-
-const partialRight = (func, ...args) => function (...inner) {
-  const argList = reverse(args.concat(inner))
-
-  return func.apply(this, argList)
-}
+const partialRight = (func, ...args) => _partial(func, args, false)
 
 module.exports = partialRight

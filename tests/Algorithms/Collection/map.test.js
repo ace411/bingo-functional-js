@@ -1,15 +1,18 @@
-const { describe, Try } = require('riteway')
+const { describe } = require('riteway')
 const { map, compose } = require('../../../index')
 
 describe('map()', async (assert) => {
-  const ops = compose((x) => x + 1, (x) => x * x)
+  const ops = compose(
+    (x) => x + 1,
+    (x) => x * x,
+  )
   const transform = (x) => ops(x)
 
   assert({
     given: 'no arguments',
-    should: 'throw a type error',
-    actual: Try(map).toString(),
-    expected: 'TypeError: Cannot convert undefined or null to object',
+    should: 'return undefined',
+    actual: map(),
+    expected: undefined,
   })
 
   assert({

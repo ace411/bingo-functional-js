@@ -1,3 +1,5 @@
+const _fold = require('../Internal/_fold')
+
 /**
  * map function
  *
@@ -11,14 +13,16 @@
  * // => [1, 4, 25]
  */
 
-const map = (func, list) => {
-  const res = Array.isArray(list) ? [] : {}
+const map = (func, list) =>
+  _fold(
+    (acc, val, idx) => {
+      let result = func(val)
+      acc[idx] = result
 
-  for (const [key, value] of Object.entries(list)) {
-    res[key] = func(value)
-  }
-
-  return res
-}
+      return acc
+    },
+    list,
+    list,
+  )
 
 module.exports = map

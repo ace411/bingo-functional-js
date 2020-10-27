@@ -1,41 +1,33 @@
+const _fold = require('../Internal/_fold')
+const isNumeric = require('../Function/isNumeric')
+
 /**
  * filter function
  *
  * filter :: (a -> Bool) -> [a] -> [a]
  * @param {function} func
  * @param {(array|object)} list
- * @returns {*}
+ * @returns {(array|object)}
  * @example
  *
  * filter((x) => x % 2 === 0, [2, 9, 3, 14])
  * // => [2, 14]
  */
-const sizeOf = require('./sizeOf')
+const filter = (predicate, list) =>
+  _fold(
+    (acc, val, idx) => {
+      if (predicate(val)) {
+        if (isNumeric(idx)) {
+          acc.push(val)
+        } else {
+          acc[idx] = val
+        }
+      }
 
-const filterArray = (func, list) => {
-  const result = []
-
-  for (let idx = 0; idx < sizeOf(list); idx += 1) {
-    if (func(list[idx])) result.push(list[idx])
-  }
-
-  return result
-}
-
-const filterObj = (func, list) => {
-  const result = {}
-
-  for (const [key, value] of Object.entries(list)) {
-    if (func(value)) {
-      result[key] = value
-    }
-  }
-
-  return result
-}
-
-const filter = (func, list) => (Array.isArray(list)
-  ? filterArray(func, list)
-  : filterObj(func, list))
+      return acc
+    },
+    list,
+    Array.isArray(list) ? [] : {},
+  )
 
 module.exports = filter

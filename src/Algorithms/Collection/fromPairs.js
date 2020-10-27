@@ -1,3 +1,8 @@
+const head = require('./head')
+const last = require('./last')
+const sizeOf = require('./sizeOf')
+const _fold = require('../Internal/_fold')
+
 /**
  * fromPairs function
  *
@@ -9,23 +14,17 @@
  * fromPairs([['foo', 'bar'], ['baz', 'fooz']])
  * // => { foo: 'bar', baz: 'fooz' }
  */
-const fold = require('./fold')
-const sizeOf = require('./sizeOf')
+const fromPairs = (list) =>
+  _fold(
+    (acc, val) => {
+      if (Array.isArray(val) && sizeOf(val) == 2) {
+        acc[head(val)] = last(val)
+      }
 
-const fromPairs = (list) => {
-  const ret = fold((obj, item) => {
-    const [key, val] = Array.isArray(item) && sizeOf(item) === 2 && item
-    const result = obj
-
-    if (!key || !val) {
-      return result
-    }
-
-    result[key] = val
-    return result
-  }, list, {})
-
-  return ret
-}
+      return acc
+    },
+    list,
+    {},
+  )
 
 module.exports = fromPairs

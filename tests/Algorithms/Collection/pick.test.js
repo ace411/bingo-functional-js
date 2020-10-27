@@ -1,12 +1,12 @@
-const { describe, Try } = require('riteway')
+const { describe } = require('riteway')
 const { pick } = require('../../../index')
 
 describe('pick()', async (assert) => {
   assert({
     given: 'no arguments',
-    should: 'throw an error',
-    actual: Try(pick).toString(),
-    expected: 'TypeError: Cannot convert undefined or null to object',
+    should: 'return undefined',
+    actual: pick(),
+    expected: undefined,
   })
 
   assert({

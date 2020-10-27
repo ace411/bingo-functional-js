@@ -8,7 +8,7 @@ const { identity: id, compose } = require('../../index')
  * @example
  *
  * identity(new IO(() => fs.readFileSync('data.txt', { encoding: 'utf-8' })))
- * // => { left: [IO], right: [IO] }
+ * // => { left: [Monadic], right: [Monadic] }
  */
 const identity = (functor) => ({ left: functor.map(id), right: id(functor) })
 
@@ -42,7 +42,7 @@ const composition = (functor, ...funcs) => {
  * @example
  *
  * leftIdentity(Reader.of(identity), (x) => Reader.of(x ** 2), 2)
- * // => { left: [Reader], right: [Reader] }
+ * // => { left: [Monadic], right: [Monadic] }
  */
 const leftIdentity = (monad, func, val) => ({ left: monad.bind(func), right: func(val) })
 
@@ -55,7 +55,7 @@ const leftIdentity = (monad, func, val) => ({ left: monad.bind(func), right: fun
  * @example
  *
  * rightIdentity(Reader.of(identity), new Reader(identity))
- * // => { left: [Reader], right: [Reader] }
+ * // => { left: [Monadic], right: [Monadic] }
  */
 const rightIdentity = (monad, constructor) => ({ left: monad, right: constructor })
 
@@ -68,7 +68,7 @@ const rightIdentity = (monad, constructor) => ({ left: monad, right: constructor
  * @example
  *
  * associativity(State.of(x), (x) => State.of(x ** 2), (y) => State.of(y ** 3))
- * // => { left: [State], right: [State] }
+ * // => { left: [Monadic], right: [Monadic] }
  */
 const associativity = (monad, ...funcs) => {
   const [fx, fy] = funcs

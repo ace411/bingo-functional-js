@@ -1,3 +1,7 @@
+const equal = require('deep-equal')
+const _fold = require('../Internal/_fold')
+const isJsonObject = require('../Function/isJsonObject')
+
 /**
  * pick function
  *
@@ -10,24 +14,21 @@
  * pick([1, 4, [9, 7]], 9)
  * // => 9
  */
-const head = require('./head')
-const filter = require('./filter')
-const flatten = require('./flatten')
-const { isJsonObject } = require('../Function')
+const pick = (haystack, needle, def = undefined) =>
+  _fold(
+    (acc, val) => {
+      if (Array.isArray(val) || isJsonObject(val)) {
+        pick(val, needle, def)
+      }
 
-const pick = (haystack, needle) => {
-  const picked = []
-  const objectValues = Object.values(haystack)
+      if (equal(needle, val)) {
+        acc = val
+      }
 
-  for (let idx = 0; idx < objectValues.length; idx += 1) {
-    const value = objectValues[idx]
-
-    picked.push(isJsonObject(value) || Array.isArray(value)
-      ? pick(value, needle)
-      : (value === needle && value))
-  }
-
-  return head(filter((val) => val !== false, flatten(picked)))
-}
+      return acc
+    },
+    haystack,
+    def,
+  )
 
 module.exports = pick

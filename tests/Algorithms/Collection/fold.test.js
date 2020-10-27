@@ -13,9 +13,9 @@ describe('fold()', async (assert) => {
 
   assert({
     given: 'no arguments',
-    should: 'throw an error',
-    actual: Try(fold).toString(),
-    expected: 'TypeError: Cannot convert undefined or null to object',
+    should: 'return undefined',
+    actual: fold(),
+    expected: undefined,
   })
 
   assert({

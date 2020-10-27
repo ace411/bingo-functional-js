@@ -1,3 +1,6 @@
+const sizeOf = require('./sizeOf')
+const filter = require('./filter')
+
 /**
  * any function
  *
@@ -10,9 +13,8 @@
  * any([3, 16, 9, 4], (x) => x % 2 !== 0)
  * // => true
  */
-const sizeOf = require('./sizeOf')
-const filter = require('./filter')
 
-const any = (list, func) => sizeOf(filter(func, list)) >= 1
+const any = (list, func) =>
+  sizeOf(list) == 0 ? false : sizeOf(filter(func, list)) >= 1
 
 module.exports = any

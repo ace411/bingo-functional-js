@@ -1,12 +1,12 @@
-const { describe, Try } = require('riteway')
+const { describe } = require('riteway')
 const { max } = require('../../../index')
 
 describe('max()', async (assert) => {
   assert({
     given: 'no arguments',
     should: 'throw an error',
-    actual: Try(max).toString(),
-    expected: 'TypeError: Cannot convert undefined or null to object',
+    actual: max(),
+    expected: undefined,
   })
 
   assert({
