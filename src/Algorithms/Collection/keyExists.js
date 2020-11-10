@@ -1,3 +1,5 @@
+const sizeOf = require('./sizeOf')
+
 /**
  * keyExists function
  *
@@ -10,9 +12,6 @@
  * keyExists(['foo', 'bar', 'baz'], '2')
  * // => true
  */
-
-const sizeOf = require('./sizeOf')
-
 const keyExists = (haystack, needle) => {
   const result = []
 

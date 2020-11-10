@@ -1,3 +1,6 @@
+const equal = require('deep-equal')
+const _fold = require('../Internal/_fold')
+
 /**
  * indexOf function
  *
@@ -10,20 +13,16 @@
  * indexOf({ a: 'foo', b: 'bar' }, 'bar')
  * // => 'b'
  */
-
-const head = require('./head')
-const isNumeric = require('../Function/isNumeric')
-
-const indexOf = (haystack, needle) => {
-  const index = []
-
-  for (const [key, value] of Object.entries(haystack)) {
-    if (value === needle) {
-      index.push(isNumeric(key) ? Number.parseInt(key, 10) : key)
+const indexOf = (haystack, needle) => _fold(
+  (acc, val, idx) => {
+    if (equal(val, needle)) {
+      acc = idx
     }
-  }
 
-  return head(index)
-}
+    return acc
+  },
+  haystack,
+  undefined,
+)
 
 module.exports = indexOf

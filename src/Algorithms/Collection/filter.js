@@ -13,21 +13,20 @@ const isNumeric = require('../Function/isNumeric')
  * filter((x) => x % 2 === 0, [2, 9, 3, 14])
  * // => [2, 14]
  */
-const filter = (predicate, list) =>
-  _fold(
-    (acc, val, idx) => {
-      if (predicate(val)) {
-        if (isNumeric(idx)) {
-          acc.push(val)
-        } else {
-          acc[idx] = val
-        }
+const filter = (predicate, list) => _fold(
+  (acc, val, idx) => {
+    if (predicate(val)) {
+      if (isNumeric(idx)) {
+        acc.push(val)
+      } else {
+        acc[idx] = val
       }
+    }
 
-      return acc
-    },
-    list,
-    Array.isArray(list) ? [] : {},
-  )
+    return acc
+  },
+  list,
+  Array.isArray(list) ? [] : {},
+)
 
 module.exports = filter

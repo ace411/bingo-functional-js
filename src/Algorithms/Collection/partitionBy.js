@@ -1,3 +1,6 @@
+const sizeOf = require('./sizeOf')
+const partition = require('./partition')
+
 /**
  * partitionBy function
  *
@@ -10,9 +13,6 @@
  * partitionBy(2, [3, 4, 5, 6, 7, 9])
  * // => [[3, 4, 5], [6, 7, 9]]
  */
-const sizeOf = require('./sizeOf')
-const partition = require('./partition')
-
 const partitionBy = (partitionSize, list) => {
   if (partitionSize === 0) {
     return list

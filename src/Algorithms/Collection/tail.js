@@ -1,3 +1,5 @@
+const dropLeft = require('./dropLeft')
+
 /**
  * tail function
  *
@@ -9,8 +11,6 @@
  * tail(['foo', 'bar', 'baz'])
  * // => ['bar', 'baz']
  */
-const dropLeft = require('./dropLeft')
-
 const tail = (list) => dropLeft(list, 1)
 
 module.exports = tail

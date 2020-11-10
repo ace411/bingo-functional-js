@@ -33,7 +33,6 @@ const dropFromObject = (list, count = 1) => {
  * // => [6, 8]
  */
 
-const dropLeft = (list, count = 1) =>
-  Array.isArray(list) ? dropFromArray(list, count) : dropFromObject(list, count)
+const dropLeft = (list, count = 1) => (Array.isArray(list) ? dropFromArray(list, count) : dropFromObject(list, count))
 
 module.exports = dropLeft
