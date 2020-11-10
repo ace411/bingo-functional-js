@@ -2,6 +2,7 @@
  * isString function
  * isString :: a -> Bool
  * @param {*} val
+ * @returns {boolean}
  * @example
  *
  * isString('xyz')

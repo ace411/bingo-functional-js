@@ -1,5 +1,9 @@
+const isFunction = require('./isFunction')
+const isNull = require('./isNull')
+
 /**
  * toException function
+ *
  * toException :: (a -> Error) -> (Error -> b) -> a -> b
  * @param {function} func
  * @param {function} [handler = null]
@@ -12,10 +16,6 @@
  * })(2, 0)
  * // => 'division by zero'
  */
-
-const isFunction = require('./isFunction')
-const isNull = require('./isNull')
-
 const toException = (func, handler = null) => (...args) => {
   try {
     return func(...args)

@@ -1,5 +1,9 @@
+const reverse = require('../Collection/reverse')
+const isEmpty = require('./isEmpty')
+
 /**
  * trampoline function
+ *
  * trampoline :: (a -> b) -> a -> b
  * @param {function} func
  * @returns {*}
@@ -9,10 +13,6 @@
  * fib(30)
  * // => 832040
  */
-
-const reverse = require('../Collection/reverse')
-const isEmpty = require('./isEmpty')
-
 const trampoline = (func) => {
   const finalArgs = []
   let recursing = false

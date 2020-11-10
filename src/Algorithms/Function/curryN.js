@@ -1,16 +1,18 @@
+const sizeOf = require('../Collection/sizeOf')
+
 /**
- * curry function
- * curry :: Int -> ((a, b) -> c) -> a -> b -> c
+ * curryN
+ *
+ * curryN :: Int -> ((a, b), c) -> a -> b -> c
+ * @param {number} argCount
  * @param {function} func
  * @returns {function}
  * @example
  *
- * curry((x, y) => x + y)(2)(3)
+ * let x = curryN(2, (x, y) => x + y)
+ * x(2)(3)
  * // => 5
  */
-
-const sizeOf = require('../Collection/sizeOf')
-
 const curryN = (argCount, func) => {
   const acc = function (args) {
     return function (...inner) {
