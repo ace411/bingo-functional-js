@@ -1,4 +1,4 @@
-const { describe, Try } = require('riteway')
+const { describe } = require('riteway')
 const { indexOf } = require('../../../index')
 
 describe('indexOf()', async (assert) => {

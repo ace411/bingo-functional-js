@@ -1,4 +1,4 @@
-const { describe, Try } = require('riteway')
+const { describe } = require('riteway')
 const { flatten } = require('../../../index')
 
 describe('flatten()', async (assert) => {
