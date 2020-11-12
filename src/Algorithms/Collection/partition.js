@@ -1,3 +1,6 @@
+const sizeOf = require('./sizeOf')
+const extend = require('./extend')
+
 /**
  * partition function
  *
@@ -10,9 +13,6 @@
  * partition(2, [3, 4, 5, 6, 7])
  * // => [[3, 4, 5], [6, 7]]
  */
-const sizeOf = require('./sizeOf')
-const extend = require('./extend')
-
 const partition = (num, list) => {
   const count = sizeOf(list)
 

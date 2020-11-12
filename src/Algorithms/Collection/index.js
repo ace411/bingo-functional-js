@@ -27,6 +27,12 @@ const mean = require('./mean')
 const flatten = require('./flatten')
 const mapDeep = require('./mapDeep')
 const reject = require('./reject')
+const fill = require('./fill')
+const pluckPath = require('./pluckPath')
+const indexesOf = require('./indexesOf')
+const intersects = require('./intersects')
+const countOfKey = require('./countOfKey')
+const countOfValue = require('./countOfValue')
 
 module.exports = {
   any,
@@ -58,4 +64,10 @@ module.exports = {
   partition,
   partitionBy,
   flatten,
+  fill,
+  pluckPath,
+  indexesOf,
+  intersects,
+  countOfKey,
+  countOfValue,
 }

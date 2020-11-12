@@ -1,4 +1,4 @@
-const { describe, Try } = require('riteway')
+const { describe } = require('riteway')
 const { indexOf } = require('../../../index')
 
 describe('indexOf()', async (assert) => {
@@ -20,7 +20,7 @@ describe('indexOf()', async (assert) => {
     given: 'an array and existent array value',
     should: 'return corresponding value index',
     actual: indexOf(['foo', 'bar'], 'bar'),
-    expected: 1,
+    expected: '1',
   })
 
   assert({
@@ -32,8 +32,8 @@ describe('indexOf()', async (assert) => {
 
   assert({
     given: 'no arguments',
-    should: 'throw an error',
-    actual: Try(indexOf).toString(),
-    expected: 'TypeError: Cannot convert undefined or null to object',
+    should: 'return undefined',
+    actual: indexOf(),
+    expected: undefined,
   })
 })

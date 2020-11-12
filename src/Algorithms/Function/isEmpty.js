@@ -1,14 +1,3 @@
-/**
- * isEmpty function
- * isEmpty :: a -> Bool
- * @param {*} val
- * @returns {boolean}
- * @example
- *
- * isEmpty({})
- * // => true
- */
-
 const isUndefined = require('./isUndefined')
 const isFunction = require('./isFunction')
 const isNumber = require('./isNumber')
@@ -20,7 +9,18 @@ const isSymbol = require('./isSymbol')
 const isError = require('./isError')
 const sizeOf = require('../Collection/sizeOf')
 
-const isEmpty = (val) => (!((val instanceof Date)
+/**
+ * isEmpty function
+ * isEmpty :: a -> Bool
+ * @param {*} val
+ * @returns {boolean}
+ * @example
+ *
+ * isEmpty({})
+ * // => true
+ */
+const isEmpty = (val) => !(
+  val instanceof Date
     || isError(val)
     || isNull(val)
     || isSymbol(val)
@@ -30,6 +30,7 @@ const isEmpty = (val) => (!((val instanceof Date)
     || isUndefined(val)
     || (isString(val) && val.length > 0)
     || isNumber(val)
-    || (sizeOf(val) > 0)))
+    || sizeOf(val) > 0
+)
 
 module.exports = isEmpty

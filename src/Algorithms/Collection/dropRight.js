@@ -1,3 +1,6 @@
+const dropLeft = require('./dropLeft')
+const reverse = require('./reverse')
+
 /**
  * dropRight function
  *
@@ -9,9 +12,6 @@
  * dropRight([3, 4, 6, 8], 2)
  * // => [3, 4]
  */
-const dropLeft = require('./dropLeft')
-const reverse = require('./reverse')
-
 const dropRight = (list, count = 1) => reverse(dropLeft(reverse(list), count))
 
 module.exports = dropRight

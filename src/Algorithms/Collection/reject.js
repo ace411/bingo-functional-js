@@ -3,14 +3,14 @@ const isNumeric = require('../Function/isNumeric')
 
 /**
  * reject function
- * 
+ *
  * reject :: (a -> Bool) -> [a] -> [a]
- * 
- * @param {function} predicate 
+ *
+ * @param {function} predicate
  * @param {(object|array)} list
  * @returns {(object|array)}
  * @example
- * 
+ *
  * reject((x) => x % 2 === 0, [2, 9, 3, 14])
  * // => [9, 3]
  */

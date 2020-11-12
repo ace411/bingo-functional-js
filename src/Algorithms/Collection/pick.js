@@ -14,21 +14,20 @@ const isJsonObject = require('../Function/isJsonObject')
  * pick([1, 4, [9, 7]], 9)
  * // => 9
  */
-const pick = (haystack, needle, def = undefined) =>
-  _fold(
-    (acc, val) => {
-      if (Array.isArray(val) || isJsonObject(val)) {
-        pick(val, needle, def)
-      }
+const pick = (haystack, needle, def = undefined) => _fold(
+  (acc, val) => {
+    if (Array.isArray(val) || isJsonObject(val)) {
+      pick(val, needle, def)
+    }
 
-      if (equal(needle, val)) {
-        acc = val
-      }
+    if (equal(needle, val)) {
+      acc = val
+    }
 
-      return acc
-    },
-    haystack,
-    def,
-  )
+    return acc
+  },
+  haystack,
+  def,
+)
 
 module.exports = pick

@@ -1,5 +1,8 @@
+const isUndefined = require('./isUndefined')
+
 /**
  * memoize function
+ *
  * memoize :: (a -> b -> c) -> a -> b -> c
  * @param {function} func
  * @return {function}
@@ -9,9 +12,6 @@
  * memoize(factorial)(15)
  * // => 1307674368000
  */
-
-const isUndefined = require('./isUndefined')
-
 const memoize = (func) => function (...args) {
   this.cache = {}
   const key = JSON.stringify(args)

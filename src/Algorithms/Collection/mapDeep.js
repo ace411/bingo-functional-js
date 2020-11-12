@@ -16,10 +16,9 @@ const mapDeep = (func, list) => {
   const result = Array.isArray(list) ? [] : {}
 
   for (const [key, value] of Object.entries(list)) {
-    result[key] =
-      Array.isArray(value) || isJsonObject(value)
-        ? mapDeep(func, value)
-        : func(value)
+    result[key] = Array.isArray(value) || isJsonObject(value)
+      ? mapDeep(func, value)
+      : func(value)
   }
 
   return result

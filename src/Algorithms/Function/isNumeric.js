@@ -1,3 +1,6 @@
+const isNumber = require('./isNumber')
+const isString = require('./isString')
+
 /**
  * isNumeric function
  * isNumeric :: String -> Int -> Bool
@@ -9,10 +12,6 @@
  * isNumeric('99b')
  * // => true
  */
-
-const isNumber = require('./isNumber')
-const isString = require('./isString')
-
 const isNumeric = (str, radix = 10) => isString(str) && isNumber(Number.parseInt(str, radix))
 
 module.exports = isNumeric

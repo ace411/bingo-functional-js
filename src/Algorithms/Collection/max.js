@@ -1,3 +1,6 @@
+const fold = require('./fold')
+const isUndefined = require('../Function/isUndefined')
+
 /**
  * max function
  *
@@ -9,9 +12,6 @@
  * max([8, 7, 13, 2])
  * // => 13
  */
-const fold = require('./fold')
-const isUndefined = require('../Function/isUndefined')
-
 const max = (list) => {
   const res = fold(
     (acc, val) => {

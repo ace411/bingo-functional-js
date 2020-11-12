@@ -1,4 +1,4 @@
-const { describe, Try } = require('riteway')
+const { describe } = require('riteway')
 const { fold } = require('../../../index')
 
 describe('fold()', async (assert) => {

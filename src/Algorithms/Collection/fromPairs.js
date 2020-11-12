@@ -14,17 +14,16 @@ const _fold = require('../Internal/_fold')
  * fromPairs([['foo', 'bar'], ['baz', 'fooz']])
  * // => { foo: 'bar', baz: 'fooz' }
  */
-const fromPairs = (list) =>
-  _fold(
-    (acc, val) => {
-      if (Array.isArray(val) && sizeOf(val) == 2) {
-        acc[head(val)] = last(val)
-      }
+const fromPairs = (list) => _fold(
+  (acc, val) => {
+    if (Array.isArray(val) && sizeOf(val) === 2) {
+      acc[head(val)] = last(val)
+    }
 
-      return acc
-    },
-    list,
-    {},
-  )
+    return acc
+  },
+  list,
+  {},
+)
 
 module.exports = fromPairs

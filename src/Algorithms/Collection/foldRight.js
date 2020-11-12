@@ -1,3 +1,6 @@
+const fold = require('./fold')
+const reverse = require('./reverse')
+
 /**
  * foldRight function
  *
@@ -11,9 +14,6 @@
  * foldRight((acc, val) => acc + val, [1, 2], 0)
  * // => 3
  */
-const fold = require('./fold')
-const reverse = require('./reverse')
-
 const foldRight = (func, list, acc) => fold(func, reverse(list), acc)
 
 module.exports = foldRight

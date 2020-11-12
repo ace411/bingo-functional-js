@@ -1,3 +1,6 @@
+const sizeOf = require('./sizeOf')
+const fold = require('./fold')
+
 /**
  * mean function
  *
@@ -9,9 +12,6 @@
  * mean([2, 7, 9])
  * // => 6
  */
-const sizeOf = require('./sizeOf')
-const fold = require('./fold')
-
 const mean = (list) => {
   const sum = fold(
     (acc, val) => {

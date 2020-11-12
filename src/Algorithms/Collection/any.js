@@ -14,7 +14,6 @@ const filter = require('./filter')
  * // => true
  */
 
-const any = (list, func) =>
-  sizeOf(list) == 0 ? false : sizeOf(filter(func, list)) >= 1
+const any = (list, func) => (sizeOf(list) === 0 ? false : sizeOf(filter(func, list)) >= 1)
 
 module.exports = any

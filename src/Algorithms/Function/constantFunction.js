@@ -1,16 +1,16 @@
+const head = require('../Collection/head')
+
 /**
  * constantFunction
+ *
  * constantFunction :: a -> b -> (() -> a) -> a
  * @param {any...} args
- * @return {function}
+ * @returns {function}
  * @example
  *
  * constantFunction('foo', 3)()
  * // => 'foo'
  */
-
-const head = require('../Collection/head')
-
-const constantFunction = (...args) => (() => head(args))
+const constantFunction = (...args) => () => head(args)
 
 module.exports = constantFunction

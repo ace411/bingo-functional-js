@@ -1,3 +1,5 @@
+const firstVal = (list) => list[0]
+
 /**
  * head function
  *
@@ -9,10 +11,6 @@
  * head(['foo', 'bar'])
  * // => 'foo'
  */
-const firstVal = (list) => list[0]
-
-const head = (list) => (Array.isArray(list)
-  ? firstVal(list)
-  : firstVal(Object.values(list)))
+const head = (list) => (Array.isArray(list) ? firstVal(list) : firstVal(Object.values(list)))
 
 module.exports = head
