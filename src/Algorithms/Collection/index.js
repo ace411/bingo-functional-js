@@ -33,9 +33,15 @@ const indexesOf = require('./indexesOf')
 const intersects = require('./intersects')
 const countOfKey = require('./countOfKey')
 const countOfValue = require('./countOfValue')
+const assoc = require('./assoc')
+const assocPath = require('./assocPath')
+const pluckDeep = require('./pluckDeep')
 
 module.exports = {
   any,
+  assoc,
+  assocPath,
+  pluckDeep,
   min,
   max,
   mean,
