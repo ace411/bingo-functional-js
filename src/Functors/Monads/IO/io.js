@@ -1,100 +1,106 @@
-const Monadic = require('../monad')
-const { isFunction, constantFunction } = require('../../../Algorithms/Function')
+const constantFunction = require('../../../Algorithms/Function/constantFunction')
+const isFunction = require('../../../Algorithms/Function/isFunction')
 
 /**
- * IO monad
+ * IO
+ *
  * @constructor
  * @param {function} unsafe
  */
 function IO(unsafe) {
-  Monadic.call(this, isFunction(unsafe) ? unsafe : constantFunction(unsafe))
+  this.unsafe = isFunction(unsafe) ? unsafe : constantFunction(unsafe)
 
   /**
-   * ap function
+   * of
+   *
+   * of :: a -> m a
+   * @param {*} unsafe
+   * @returns {IO}
+   * @example
+   *
+   * IO.of(() => 2)
+   * // => IO { unsafe: [Function], of: [Function], exec.... }
+   */
+  this.of = function (unsafe) {
+    return new IO(unsafe)
+  }
+
+  /**
+   * ap
+   *
+   * ap :: Monad m => m (a -> b) -> m a -> m b
    * @param {IO} io
    * @returns {IO}
    * @example
    *
-   * IO.of(() => (str) => str.toUpperCase()).ap(IO.of(() => 'foo'))
-   * // => [IO]
+   * IO.of((x) => x ** 2).ap(IO.of(() => 3))
+   * // => IO { unsafe: [Function], of: [Function], exec.... }
    */
   this.ap = function (io) {
-    const ret = this.exec()
-    return io.map(ret)
+    return io.map(this.exec())
   }
 
   /**
-   * bind function
-   * @param {function} operation
-   * @returns {IO}
-   * @example
+   * exec
    *
-   * IO.of(() => fs.readFileSync('data.txt', { encoding: 'utf-8' }))
-   *  .bind((str) => IO.of(str.toLowerCase()))
-   * // => [IO]
-   */
-  this.bind = function (operation) {
-    const ret = this.exec()
-    return operation(ret)
-  }
-
-  /**
-   * map function
-   * @param {function} operation
-   * @returns {IO}
-   * @example
-   *
-   * IO.of(() => fs.readFileSync('data.txt', { encoding: 'utf-8' }))
-   *  .map(slugify)
-   * // => [IO]
-   */
-  this.map = function (operation) {
-    const ret = this.exec()
-    return new IO(operation(ret))
-  }
-
-  /**
-   * flatMap function
-   * @param {function} operation
    * @returns {*}
    * @example
    *
-   * IO.of(() => fs.readFileSync('data.txt', { encoding: 'utf-8' }))
-   *  .map(slugify)
-   * // => 'file-contents'
-   */
-  this.flatMap = function (operation) {
-    const ret = this.exec()
-    return operation(ret)
-  }
-
-  /**
-   * exec function
-   * @returns {*}
-   * @example
-   *
-   * IO.of(() => fs.readFileSync('data.txt', { encoding: 'utf-8' })).exec()
-   * // => 'file contents'
+   * IO.of(() => 2).exec()
+   * // => 2
    */
   this.exec = function () {
-    return (this.val)()
+    return this.unsafe()
+  }
+
+  /**
+   * bind
+   *
+   * (>>=) :: IO a -> (a -> IO b) -> IO b
+   * @param {function} op
+   * @returns {IO}
+   * @example
+   *
+   * IO.of(() => 3).bind((x) => IO.of(x ** 2))
+   * // => IO { unsafe: [Function], of: [Function], exec.... }
+   */
+  this.bind = function (op) {
+    return op(this.exec())
+  }
+
+  /**
+   * map
+   *
+   * map :: (a -> b) -> IO (b)
+   * @param {function} op
+   * @returns {IO}
+   * @example
+   *
+   * IO.of(() => 3).map((x) => x ** 2)
+   * // => IO { unsafe: [Function], of: [Function], exec.... }
+   */
+  this.map = function (op) {
+    return this.bind((context) => this.of(op(context)))
+  }
+
+  /**
+   * map
+   *
+   * fmap :: Monad m => m (a -> b) -> b
+   * @param {function} op
+   * @returns {IO}
+   * @example
+   *
+   * IO.of(() => 3).map((x) => x ** 2)
+   * // => 9
+   */
+  this.flatMap = function (op) {
+    return map(op).exec()
   }
 }
 
-/**
- * of function
- * @param {function} operation
- * @returns {IO}
- * @example
- *
- * IO.of(() => fs.readFileSync('data.txt', { encoding: 'utf-8' }))
- * // => [IO]
- */
-IO.of = function (operation) {
-  return new IO(operation)
+IO.of = function (unsafe) {
+  return new IO(unsafe)
 }
-
-IO.prototype = Object.create(Monadic.prototype)
-IO.prototype.constructor = Monadic
 
 module.exports = { IO }

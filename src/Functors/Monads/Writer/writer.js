@@ -1,4 +1,3 @@
-const Monadic = require('../monad')
 const extend = require('../../../Algorithms/Collection/extend')
 const { isEmpty, isUndefined } = require('../../../Algorithms/Function')
 
@@ -8,7 +7,14 @@ const { isEmpty, isUndefined } = require('../../../Algorithms/Function')
  * @param {function} action
  */
 function Writer(action) {
-  Monadic.call(this, action)
+  this.action = action
+
+  this.of = function (result, output) {
+    return new Writer(() => [
+      result,
+      isEmpty(output) || isUndefined(output) ? [] : [output],
+    ])
+  }
 
   /**
    * ap function
@@ -67,12 +73,9 @@ function Writer(action) {
    * // => ['foo', ['put str']]
    */
   this.run = function () {
-    return this.val()
+    return this.action()
   }
 }
-
-Writer.prototype = Object.create(Monadic.prototype)
-Writer.prototype.constructor = Monadic
 
 /**
  * of function

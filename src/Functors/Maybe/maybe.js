@@ -1,11 +1,14 @@
-const { Monadic } = require('../Monads')
-
 /**
- * Nothing constructor
+ * Nothing
+ *
  * @constructor
  */
 function Nothing() {
-  Monadic.call(this, null)
+  this.val = null
+
+  this.of = function (_) {
+    return new Nothing()
+  }
 
   /**
    * ap function
@@ -105,15 +108,22 @@ function Nothing() {
  * Nothing.of()
  * // => [Nothing]
  */
-Nothing.of = function () {
+Nothing.of = function (_) {
   return new Nothing()
 }
 
-Nothing.prototype = Object.create(Monadic.prototype)
-Nothing.prototype.constructor = Monadic
-
+/**
+ * Just
+ *
+ * @constructor
+ * @param {*} val
+ */
 function Just(val) {
-  Monadic.call(this, val)
+  this.val = val
+
+  this.of = function (val) {
+    return new Just(val)
+  }
 
   /**
    * ap function
@@ -223,11 +233,9 @@ Just.of = function (val) {
   return new Just(val)
 }
 
-Just.prototype = Object.create(Monadic.prototype)
-Just.prototype.constructor = Monadic
-
 /**
- * Maybe constructor
+ * Maybe
+ *
  * @constructor
  */
 function Maybe() {

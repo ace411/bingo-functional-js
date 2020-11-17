@@ -1,13 +1,17 @@
-const Monadic = require('../monad')
-const { isFunction, constantFunction } = require('../../../Algorithms/Function')
+const constantFunction = require('../../../Algorithms/Function/constantFunction')
+const isFunction = require('../../../Algorithms/Function/isFunction')
 
 /**
  * Reader monad
  * @constructor
- * @param {function} operation
+ * @param {function} action
  */
-function Reader(operation) {
-  Monadic.call(this, isFunction(operation) ? operation : constantFunction(operation))
+function Reader(action) {
+  this.action = isFunction(action) ? action : constantFunction(action)
+
+  this.of = function (action) {
+    return new Reader(action)
+  }
 
   /**
    * ap function
@@ -60,24 +64,21 @@ function Reader(operation) {
    * // => 2
    */
   this.run = function (env) {
-    return this.val(env)
+    return this.action(env)
   }
 }
 
 /**
  * of function
- * @param {function} operation
+ * @param {function} action
  * @returns {Reader}
  * @example
  *
  * Reader.of(identity)
  * // => [Reader]
  */
-Reader.of = function (operation) {
-  return new Reader(operation)
+Reader.of = function (action) {
+  return new Reader(action)
 }
-
-Reader.prototype = Object.create(Monadic.prototype)
-Reader.prototype.constructor = Monadic
 
 module.exports = Reader

@@ -1,12 +1,14 @@
-const Monadic = require('../monad')
-
 /**
  * State monad
  * @constructor
- * @param {*} comp
+ * @param {function} comp
  */
 function State(comp) {
-  Monadic.call(this, comp)
+  this.comp = comp
+
+  this.of = function (value) {
+    return new State((state) => [value, state])
+  }
 
   /**
    * ap function
@@ -48,7 +50,9 @@ function State(comp) {
    * // => [State]
    */
   this.map = function (transform) {
-    const result = this.bind((state) => new State((ret) => [transform(state), ret]))
+    const result = this.bind(
+      (state) => new State((ret) => [transform(state), ret]),
+    )
     return result
   }
 
@@ -62,13 +66,10 @@ function State(comp) {
    * // => ['foo', 'bar']
    */
   this.run = function (state) {
-    const ret = (this.val)(state)
+    const ret = this.comp(state)
     return ret
   }
 }
-
-State.prototype = Object.create(Monadic.prototype)
-State.prototype.constructor = Monadic
 
 /**
  * of function
